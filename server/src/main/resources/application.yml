@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url:  jdbc:mysql://localhost:3306/mybatis_use?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
+  servlet:
+    multipart:
+      #上传文件总的最大值
+      max-request-size: 10MB
+      #上传文件的最大值
+      max-file-size: 100MB
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.demo.mybatis_use.pojo
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+pagehelper:
+  helper-dialect: mysql
+  #设置为true时，pageNum<=0时会查询第一页，pageNum>pages时会查询最后一页
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+server:
+  # 服务端口
+  port: 9080
